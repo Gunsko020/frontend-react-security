@@ -1,13 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useContext} from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+import {AuthContext} from "../contexts/AuthContext";
 
 function SignIn() {
+
+    const {login,isAuth} = useContext(AuthContext);
+
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log(isAuth)
+        login()
+    }
+
   return (
     <>
       <h1>Inloggen</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <p>*invoervelden*</p>
         <button>Inloggen</button>
       </form>
