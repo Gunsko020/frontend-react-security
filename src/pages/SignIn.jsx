@@ -1,14 +1,14 @@
 import React, {useContext} from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {AuthContext} from "../contexts/AuthContext";
 
 function SignIn() {
 
     const {login,isAuth} = useContext(AuthContext);
 
+
     function handleSubmit(e){
         e.preventDefault()
-        console.log(isAuth)
         login()
     }
 
@@ -19,9 +19,8 @@ function SignIn() {
 
       <form onSubmit={handleSubmit}>
         <p>*invoervelden*</p>
-        <button>Inloggen</button>
+        <button type="submit">Inloggen</button>
       </form>
-
       <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
     </>
   );
